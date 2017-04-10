@@ -1,0 +1,15 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+button{
+    height: 28px;
+    background: #fff;
+    border:#d3d3d3 solid 1px;
+    border-radius: 4px;
+    text-align: left;
+    cursor: pointer;
+}
