@@ -3,7 +3,7 @@
 ---
 
 ## Select
-### In NgModule
+#### In NgModule
 ``` typescript
 import { KuxSelectModule } from 'ng-kux';
 @NgModule({
@@ -16,11 +16,11 @@ import { KuxSelectModule } from 'ng-kux';
 export class SomeModule { }
 ```
 
-### In Component Template
+#### In Component Template
 ``` html
 <kux-select [(ngModel)]="selected" [options]="options"></kux-select>
 ```
-### In Component
+#### In Component
 ``` typescript
 export class SomeComponent{
 
@@ -49,3 +49,9 @@ export class SomeComponent{
     ]
 }
 ```
+#### Optional Parameters
+|Param          |Type   |Default    | description   |
+----------------|-------|-----------|---------------
+width           |string |205px      |select wdith
+optwdith        |string |205px      |option width
+placeholder     |string |null       |you know it
