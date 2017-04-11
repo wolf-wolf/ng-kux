@@ -1,6 +1,6 @@
 import { Component, Directive, Self, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, animate } from '@angular/core';
 import { NgModel, ControlValueAccessor } from '@angular/forms';
-import { selectOpt } from './index';
+import { KuXSelectOption } from './index';
 import { fadeInOut } from '../animate'
 @Directive({
   selector: '[kux-select-btn]'
@@ -22,7 +22,7 @@ export class kuxSelectBtn {
   template:
   `
     <button kux-select-btn [style.width]="width" class="kux-select-btn" (blur)="tryToClose()" (click)="open()">{{selected.name||placeholder}}</button>
-    <kux-select-opt kux-dropdown-menu #kuxSelectOpt [@fadeInOut]="'in'" [opt]="options" [width]="optwdith" (oncheck)="select($event)" *ngIf="isOpen" (mouseenter)="setSelecting()" (mouseleave)="mouseOut()"></kux-select-opt>
+    <kux-select-opt #kuxSelectOpt [@fadeInOut]="'in'" [opt]="options" [width]="optwdith" (oncheck)="select($event)" *ngIf="isOpen" (mouseenter)="setSelecting()" (mouseleave)="mouseOut()"></kux-select-opt>
   `,
   providers: [NgModel],
   styleUrls: ['./kuxSelect.component.css'],
@@ -33,13 +33,13 @@ export class kuxSelectBtn {
   }
 })
 export class KuxSelectComponent implements OnInit {
-  @Input() private options: selectOpt[];  //选项
+  @Input() private options: KuXSelectOption[];  //选项
   @Input() public width: string = '205px';  //btn宽度
   @Input() public optwdith: string = '205px';  //选项宽度
   @Input() placeholder: string; //你懂得
   @Output() private valueChange: EventEmitter<any> = new EventEmitter();
   private optionsMapping: any;  //选项mapping
-  public selected: selectOpt;
+  public selected: KuXSelectOption;
   private value: any;
   public isOpen: boolean = false; //是否显示选项
   private selecting: boolean = false
@@ -72,10 +72,10 @@ export class KuxSelectComponent implements OnInit {
   mouseOut() {
     this.selecting = false;
   }
-  select(opt: selectOpt) {
+  select(opt: KuXSelectOption) {
     if (this.value !== opt.value) {
       this.value = opt.value;
-      this.selected = <selectOpt>this.optionsMapping[this.value] || { name: null, value: null };
+      this.selected = <KuXSelectOption>this.optionsMapping[this.value] || { name: null, value: null };
       this.valueChange.emit(this.value);
     }
     this.selecting = false;
@@ -83,7 +83,7 @@ export class KuxSelectComponent implements OnInit {
   }
   ngOnInit() {
     this.optionsMapping = {};
-    this.options.forEach((itm: selectOpt) => {
+    this.options.forEach((itm: KuXSelectOption) => {
       this.optionsMapping[itm.value] = itm;
     });
     switch (this.optwdith) {
@@ -101,7 +101,7 @@ export class KuxSelectComponent implements OnInit {
     if (v !== this.value) {
       this.value = v;
       if (this.optionsMapping) {
-        this.selected = <selectOpt>this.optionsMapping[v] || { name: null, value: null };
+        this.selected = <KuXSelectOption>this.optionsMapping[v] || { name: null, value: null };
       }
     }
   }
@@ -159,7 +159,7 @@ export class KuxSelectComponent implements OnInit {
   ]
 })
 export class KuXSelectOpt implements OnInit {
-  @Input() public opt: selectOpt[];
+  @Input() public opt: KuXSelectOption[];
   @Input() public width: string;
   @Output() public oncheck: EventEmitter<KuXSelectOpt> = new EventEmitter<KuXSelectOpt>(false);
   public style: {} = {};
