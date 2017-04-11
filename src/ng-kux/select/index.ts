@@ -4,13 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { KuxSelectComponent, kuxSelectBtn, KuXSelectOpt } from './kuxSelect.component.ts'
 
 @NgModule({
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA], //非表单元素加ngModel的profill
     imports: [CommonModule, FormsModule],
     declarations: [KuxSelectComponent, kuxSelectBtn, KuXSelectOpt],
-    exports: [KuxSelectComponent]
+    exports: [KuxSelectComponent] 
 })
 export class KuxSelectModule { }
-kuxSelectBtn
+
 export interface selectOpt {
     name: any,
     value: any
