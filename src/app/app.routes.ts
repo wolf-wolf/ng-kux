@@ -9,6 +9,9 @@ const APP_ROUTES: Routes = [
         path: 'select',
         loadChildren: './select#SelectModule'
       }, {
+        path: 'scrollbar',
+        loadChildren: './scrollBar#ScrollBarModule'
+      }, {
         path: '**',
         redirectTo: 'select'
       }
