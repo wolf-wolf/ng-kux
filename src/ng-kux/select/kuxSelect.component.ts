@@ -21,7 +21,7 @@ export class kuxSelectBtn {
   animations: [fadeInOut],
   template:
   `
-    <button kux-select-btn kux-dropdown [style.width]="width" class="kux-select-btn" (blur)="tryToClose()" (click)="open()">{{selected.name||placeholder}}</button>
+    <button kux-select-btn [style.width]="width" class="kux-select-btn" (blur)="tryToClose()" (click)="open()">{{selected.name||placeholder}}</button>
     <kux-select-opt kux-dropdown-menu #kuxSelectOpt [@fadeInOut]="'in'" [opt]="options" [width]="optwdith" (oncheck)="select($event)" *ngIf="isOpen" (mouseenter)="setSelecting()" (mouseleave)="mouseOut()"></kux-select-opt>
   `,
   providers: [NgModel],
