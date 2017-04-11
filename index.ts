@@ -1,0 +1,1 @@
+export { KuxSelectModule } from './dist/select';

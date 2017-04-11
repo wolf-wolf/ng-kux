@@ -1,14 +1,13 @@
 {
   "name": "ng-kux",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "angular4+ Component",
-  "main": "dist/index.ts",
-  "typings":"index-typings.d.ts",
   "files": [
     "dist",
-    "tsconfig.json",
-    "index-typings.d.ts"
+    "index.ts",
+    "tsconfig.json"
   ],
+  "main":"index.ts",
   "scripts": {
     "rimraf": "rimraf",
     "start": "npm run server:dev -- --inline --hot",
@@ -23,7 +22,7 @@
     "build": "npm run build:aot:prod",
     "webpack": "webpack",
     "preview": "http-server demo -p 3000 -o --gzip",
-    "prepublish":"npm run clean:dist && gulp prepublish"
+    "prepublish": "npm run clean:dist && gulp prepublish"
   },
   "repository": {
     "type": "git",
