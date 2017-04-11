@@ -10,3 +10,7 @@ import { KuxSelectComponent, kuxSelectBtn } from './kuxSelect.component.ts'
     exports: [KuxSelectComponent]
 })
 export class KuxSelectModule { }
+export interface KuxSelectOpt {
+    name: string
+    value: any
+}

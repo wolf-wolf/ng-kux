@@ -6,7 +6,3 @@ declare var System: SystemJS;
 interface SystemJS {
   import: (path?: string) => Promise<any>;
 }
-interface KuxSelectOpt {
-    name: any,
-    value: any
-}
