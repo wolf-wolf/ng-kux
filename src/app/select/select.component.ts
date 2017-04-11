@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./select.component.css']
 })
 export class SelectComponent implements OnInit {
-  public options: any[] = [
+  public options: KuxSelectOpt[] = [
     {
       name: "选择下面一项",
       value: -1

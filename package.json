@@ -5,7 +5,8 @@
   "files": [
     "dist",
     "index.ts",
-    "tsconfig.json"
+    "tsconfig.json",
+    "ng-kux.d.ts"
   ],
   "main":"index.ts",
   "scripts": {
