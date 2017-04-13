@@ -50,8 +50,56 @@ export class SomeComponent{
 }
 ```
 #### Optional Parameters
-|Param          |Type   |Default    | description   |
-----------------|-------|-----------|---------------
-width           |string |205px      |select wdith
-optwdith        |string |205px      |option width
-placeholder     |string |null       |you know it
+|Param          |Type       |Default    | description   |
+----------------|-----------|-----------|---------------
+width           |string     |205px      |select wdith
+optwdith        |string     |205px      |option width
+maxHeight       |string     |null       |option max height
+placeholder     |string     |null       |you know it
+disabled        |boolean    |false      |you know it
+
+---
+
+## ScrollBar
+#### In NgModule
+``` typescript
+import { KuxScrollBarModule } from 'ng-kux';
+@NgModule({
+  imports: [
+    KuxScrollBarModule
+    ,...
+  ],
+  declarations: [...]
+})
+export class SomeModule { }
+```
+
+#### In Component Template
+``` html
+<kux-scrollbar [autoHide]="true">
+    ...
+</kux-scrollbar>
+```
+#### Optional Parameters
+|Param          |Type       |Default    | description   |
+----------------|-----------|-----------|---------------
+autoHide        |boolean    |true       |auto hide x&y scroll bar
+
+#### In Parant Component You Can...
+``` typescript
+export class ParentComponent implements  AfterViewInit {
+    @ViewChild(ScrollbarComponent) private scrollBox: ScrollbarComponent
+    constructor() { }
+    ngAfterViewInit() {
+
+        this.scrollBox.scrollTop=100;           //set scrollTop 
+        console.log(this.scrollBox.scrollTop);  //get scrollTop
+
+        this.scrollBox.scrollLeft=100;          //set scrollLeft
+        console.log(this.scrollBox.scrollLeft); //get scrollLeft
+
+        this.scrollBox.isScrollToBottom();      //is scroll box scroll to the bottom
+        this.scrollBox.isScrollToRight();       //is scroll box scroll to the right
+    }
+}
+```
