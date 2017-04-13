@@ -11,6 +11,7 @@ import { ScrollBarComponent } from './scrollBar.component';
     KuxScrollBarModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ScrollBarComponent]
+  declarations: [ScrollBarComponent],
+  exports:[ScrollBarComponent]
 })
 export class ScrollBarModule { }
