@@ -233,7 +233,7 @@ export class ScrollbarContent {
     '(DOMMouseScroll)': 'scrolling($event)'
   }
 })
-export class ScrollbarComponent implements AfterViewInit {
+export class KuxScrollbarComponent implements AfterViewInit {
   private $scrollTop: number = 0;
   private $scrollLeft: number = 0;
   /** 自动隐藏滚动条 */
@@ -294,7 +294,7 @@ export class ScrollbarComponent implements AfterViewInit {
     } else if (scrollLeft >= this.maxXScroll) {
       this.barXAttr.style.transform = `translateX(${this.barXMaxLeft + 'px'})`;
     } else {
-      this.barXAttr.style.transform = `translateX(${scrollLeft / this.maxXScroll * this.barXMaxLeft  + 'px'})`;
+      this.barXAttr.style.transform = `translateX(${scrollLeft / this.maxXScroll * this.barXMaxLeft + 'px'})`;
     }
   }
   initScroll() { //初始化滚动参数
@@ -304,8 +304,8 @@ export class ScrollbarComponent implements AfterViewInit {
     this.contentWidth = this.content.el.offsetWidth - 20;
     this.maxYScroll = this.contentHeight - this.boxHeight;
     this.maxXScroll = this.contentWidth - this.boxWidth;
-    let barHeight = this.boxHeight / this.contentHeight  * this.boxHeight;
-    let barWidth = this.boxWidth / this.contentWidth  * this.boxWidth;
+    let barHeight = this.boxHeight / this.contentHeight * this.boxHeight;
+    let barWidth = this.boxWidth / this.contentWidth * this.boxWidth;
     this.barYAttr.style.height = barHeight + 'px';
     this.barXAttr.style.width = barWidth + 'px';
     this.barYMaxTop = this.boxHeight - barHeight;
@@ -369,8 +369,10 @@ export class ScrollbarComponent implements AfterViewInit {
     return this.$scrollLeft >= this.maxXScroll
   }
   public refresh() {
-    this.initScroll();
-    this.scrolling();
+    setTimeout(() => {
+      this.initScroll();
+      this.scrolling();
+    })
   }
   get scrollTop() {
     return this.$scrollTop;

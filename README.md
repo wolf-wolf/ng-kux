@@ -87,8 +87,10 @@ autoHide        |boolean    |true       |auto hide x&y scroll bar
 
 #### In Parant Component You Can...
 ``` typescript
+import { KuxScrollbarComponent } from 'ng-kux';
+@Component({...})
 export class ParentComponent implements  AfterViewInit {
-    @ViewChild(ScrollbarComponent) private scrollBox: ScrollbarComponent
+    @ViewChild(KuxScrollbarComponent) private scrollBox: KuxScrollbarComponent
     constructor() { }
     ngAfterViewInit() {
 
@@ -100,6 +102,8 @@ export class ParentComponent implements  AfterViewInit {
 
         this.scrollBox.isScrollToBottom();      //is scroll box scroll to the bottom
         this.scrollBox.isScrollToRight();       //is scroll box scroll to the right
+
+        this.scrollBox.refresh();               //refresh scroll bar
     }
 }
 ```

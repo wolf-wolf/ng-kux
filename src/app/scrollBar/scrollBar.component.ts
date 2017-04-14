@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { ScrollbarComponent } from '../../ng-kux/scrollbar/scrollbar.component'
+import { KuxScrollbarComponent } from '../../ng-kux/scrollbar/scrollbar.component'
 @Component({
   templateUrl: './scrollBar.component.html',
   styleUrls: ['./scrollBar.component.css']
 })
 export class ScrollBarComponent implements OnInit, AfterViewInit {
-  public line: number[] = Array(50).fill(null).map((x, i) => i);
+  public line: number[] = Array(15).fill(null).map((x, i) => i);
   public column = Array(49).fill(null).map((x, i) => i);
-  @ViewChild(ScrollbarComponent) private scrollBox: ScrollbarComponent
+  @ViewChild(KuxScrollbarComponent) private scrollBox: KuxScrollbarComponent
   constructor() { }
 
   ngOnInit() {

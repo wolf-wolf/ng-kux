@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ScrollbarComponent, ScrollbarContent, ScrollBarY, ScrollBarX } from './scrollbar.component';
+import { KuxScrollbarComponent, ScrollbarContent, ScrollBarY, ScrollBarX } from './scrollbar.component';
 import { KuxScrollHelper } from './helper'
 @NgModule({
   imports: [
@@ -8,10 +8,10 @@ import { KuxScrollHelper } from './helper'
   ],
   providers: [KuxScrollHelper],
   declarations: [
-    ScrollbarComponent, ScrollbarContent, ScrollBarY, ScrollBarX
+    KuxScrollbarComponent, ScrollbarContent, ScrollBarY, ScrollBarX
   ],
   exports: [
-    ScrollbarComponent
+    KuxScrollbarComponent
   ]
 })
 export class KuxScrollBarModule { }
