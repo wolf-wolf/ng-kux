@@ -1,16 +1,29 @@
 *
 {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+
     outline: none;
 }
-button{
+button
+{
     height: 28px;
-    background: #fff;
-    border:#d3d3d3 solid 1px;
-    border-radius: 4px;
-    text-align: left;
-    cursor: pointer;
     padding-left: 10px;
+
+    cursor: pointer;
+    text-align: left;
+
+    color: #333;
+    border: #d3d3d3 solid 1px;
+    border-radius: 4px;
+    background: #fff;
+}
+button:fucus
+{
+    color: #333;
+}
+:host.disabled >>> .kux-select-btn
+{
+    background-color: #f1f1f1;
 }

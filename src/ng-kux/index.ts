@@ -1,1 +1,0 @@
-export { KuxSelectModule } from './select';
